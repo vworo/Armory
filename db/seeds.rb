@@ -26,10 +26,42 @@ f4 = Firearm.create :model => 'AK-74N', :calibre => '5.45x39mm', :family => 'Ass
 puts "#{ Firearm.count } firearms created."
 
 Manufacturer.destroy_all
-m1 = Manufacturer.create :name => 'Heckler & Koch', :founder => 'Edmund Heckler, Theodor Kock, Alex Seidel', :founded => 1949, :country => 'Germany', :image => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/HK_Logo.svg/440px-HK_Logo.svg.png'
+m1 = Manufacturer.create :name => 'Heckler & Koch', :founder => 'Edmund Heckler, Theodor Koch, Alex Seidel', :founded => 1949, :country => 'Germany', :image => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/HK_Logo.svg/440px-HK_Logo.svg.png'
 m2 = Manufacturer.create :name => "Colt's Manufacturing Company", :founder => 'Samuel Colt', :founded => 1855, :country => 'America', :image => 'https://upload.wikimedia.org/wikipedia/en/thumb/d/da/Colt_logo.svg/440px-Colt_logo.svg.png'
 m3 = Manufacturer.create :name => 'Fabrique Nationale Herstal', :founder => 'Henri Pieper', :founded => 1889, :country => 'Belgium', :image => 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/FN-Herstal-logo.svg/400px-FN-Herstal-logo.svg.png'
 m4 = Manufacturer.create :name => 'JSC Kalashnikov Concern', :founder => 'Alexander 1, Mikhail Kalashnikov', :founded => 1807, :country => 'Russia', :image => 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/KalashnikovConcern.svg/300px-KalashnikovConcern.svg.png'
 puts "#{ Manufacturer.count } manufacturers created."
 
-puts "Assocations"
+puts "Users and ammos"
+u1.ammos << a1
+u1.ammos << a2
+u1.ammos << a3
+u2.ammos << a2
+u2.ammos << a3
+u2.ammos << a4
+
+puts "Users and firearms"
+u1.firearms << f1
+u1.firearms << f2
+u1.firearms << f3
+u2.firearms << f2
+u2.firearms << f3
+u2.firearms << f4
+
+puts "Ammos and firearms"
+a1.firearms << f1
+a2.firearms << f2
+a3.firearms << f3
+a4.firearms << f4
+
+puts "Firearms and ammos"
+f1.ammos << a1
+f2.ammos << a2
+f3.ammos << a3
+f4.ammos << a4
+
+puts "Manufacturers and firearms"
+m1.firearms << f1
+m2.firearms << f2
+m3.firearms << f3
+m4.firearms << f4
