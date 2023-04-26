@@ -22,4 +22,8 @@
     </li>
 </ul>
 
-<%= image_tag @firearm.image if @firearm.image.present? %>
+<% if @firearm.image.present? && @firearm.image =~ /^[\w-]+$/ %>
+  <%= cl_image_tag @firearm.image %>
+<% elsif @firearm.image.present? %>
+  <%= image_tag @firearm.image %>
+<% end %>

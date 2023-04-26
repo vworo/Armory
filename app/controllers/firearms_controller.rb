@@ -17,6 +17,12 @@ class FirearmsController < ApplicationController
             firearm.ammos << ammo
         end
 
+        if params[:file].present?
+            req = Cloudinary::Uploader.upload(params[:file])
+            firearm.image = req["public_id"]
+            firearm.save
+        end
+
         redirect_to firearm
     end
   
@@ -26,6 +32,13 @@ class FirearmsController < ApplicationController
   
     def update
         firearm = Firearm.find params[:id]
+
+        if params[:file].present?
+            req = Cloudinary::Uploader.upload(params[:file])
+            firearm.image = req["public_id"]
+            firearm.save
+        end
+
         firearm.update firearm_params
         redirect_to firearm
     end
