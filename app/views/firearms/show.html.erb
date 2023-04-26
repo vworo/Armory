@@ -16,7 +16,7 @@
     <li>Compatible ammo in database:
         <ul>
             <% @firearm.ammos.each do |ammo| %>
-                <li><%= link_to ammo.name, ammo %></li>
+                <li><%= link_to ammo.name, ammo %> x <%= ammo.quantity %></li>
             <% end %>
         </ul>
     </li>

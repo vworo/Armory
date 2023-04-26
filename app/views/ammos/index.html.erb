@@ -11,3 +11,7 @@
         <li>Quantity: <%= ammo.quantity %></li>
     </ul>
 <% end %>
+
+<% if @ammos.empty? %>
+    <p>You currently have no ammo under your account. Add some and you will see them here.</p>
+<% end %>

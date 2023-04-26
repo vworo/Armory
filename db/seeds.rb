@@ -35,16 +35,12 @@ puts "#{ Manufacturer.count } manufacturers created."
 puts "Users and ammos"
 u1.ammos << a1
 u1.ammos << a2
-u1.ammos << a3
-u2.ammos << a2
 u2.ammos << a3
 u2.ammos << a4
 
 puts "Users and firearms"
 u1.firearms << f1
 u1.firearms << f2
-u1.firearms << f3
-u2.firearms << f2
 u2.firearms << f3
 u2.firearms << f4
 

@@ -1,6 +1,8 @@
 class FirearmsController < ApplicationController
+    before_action :check_if_owner, :only => [:show]
+
     def index
-        @firearms = Firearm.all
+        @firearms = Firearm.where(:user_id => @current_user.id)
     end
   
     def new
@@ -9,6 +11,12 @@ class FirearmsController < ApplicationController
   
     def create
         firearm = Firearm.create firearm_params
+        firearm.update(:user_id => @current_user.id)
+
+        @current_user.ammos.where(calibre: firearm.calibre).each do |ammo|
+            firearm.ammos << ammo
+        end
+
         redirect_to firearm
     end
   
@@ -33,8 +41,13 @@ class FirearmsController < ApplicationController
     end
 
     private
-    
+
     def firearm_params
         params.require(:firearm).permit(:model, :calibre, :manufacturer_id, :family, :fire_rate, :effective_distance, :quantity, :image)
+    end
+
+    def check_if_owner
+        firearm = Firearm.find_by :id => params[:id]
+        redirect_to root_path unless @current_user.id == firearm.user_id
     end
 end

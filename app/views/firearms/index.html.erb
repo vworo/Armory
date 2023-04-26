@@ -11,3 +11,7 @@
         <li>Quantity: <%= firearm.quantity %></li>
     </ul>
 <% end %>
+
+<% if @firearms.empty? %>
+    <p>You currently have no firearms under your account. Add some and you will see them here.</p>
+<% end %>
