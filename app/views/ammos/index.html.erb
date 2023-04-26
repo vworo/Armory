@@ -1,2 +1,13 @@
-<h1>Ammos#index</h1>
-<p>Find me in app/views/ammos/index.html.erb</p>
+<h1>All ammo</h1>
+
+<% @ammos.each do |ammo| %>
+    <ul>
+        <li>Name: <%= link_to ammo.name, ammo %></li>
+        <li>Calibre: <%= ammo.calibre %></li>
+        <li>Manufacturer: <%= ammo.manufacturer.name if ammo.manufacturer.present? %></li>
+        <li>Bullet Velocity: <%= ammo.bullet_velocity %></li>
+        <li>Fragmentation Chance: <%= ammo.fragmentation_chance %></li>
+        <li>Ricochet Chance: <%= ammo.ricochet_chance %></li>
+        <li>Quantity: <%= ammo.quantity %></li>
+    </ul>
+<% end %>

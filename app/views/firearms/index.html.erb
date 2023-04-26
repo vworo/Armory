@@ -1,2 +1,13 @@
-<h1>Firearms#index</h1>
-<p>Find me in app/views/firearms/index.html.erb</p>
+<h1>All firearms</h1>
+
+<% @firearms.each do |firearm| %>
+    <ul>
+        <li>Model: <%= link_to firearm.model, firearm %></li>
+        <li>Calibre: <%= firearm.calibre %></li>
+        <li>Manufacturer: <%= firearm.manufacturer.name if firearm.manufacturer.present? %></li>
+        <li>Family: <%= firearm.family %></li>
+        <li>Fire Rate: <%= firearm.fire_rate %></li>
+        <li>Effective Distance: <%= firearm.effective_distance %></li>
+        <li>Quantity: <%= firearm.quantity %></li>
+    </ul>
+<% end %>

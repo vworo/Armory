@@ -1,2 +1,18 @@
-<h1>Firearms#show</h1>
-<p>Find me in app/views/firearms/show.html.erb</p>
+<h1><%= @firearm.model %></h1>
+
+<div class="controls">
+    <%= link_to "Edit firearm", edit_firearm_path(@firearm) %>
+    <%= link_to "Delete firearm", @firearm, :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+</div>
+
+<ul>
+    <li>Model: <%= @firearm.model %></li>
+    <li>Calibre: <%= @firearm.calibre %></li>
+    <li>Manufacturer: <%= @firearm.manufacturer.name if @firearm.manufacturer.present? %></li>
+    <li>Family: <%= @firearm.family %></li>
+    <li>Fire rate: <%= @firearm.fire_rate %></li>
+    <li>Effective distance: <%= @firearm.effective_distance %></li>
+    <li>Quantity: <%= @firearm.quantity %></li>
+</ul>
+
+<%= image_tag @firearm.image if @firearm.image.present? %>

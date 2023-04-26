@@ -1,2 +1,18 @@
-<h1>Ammos#show</h1>
-<p>Find me in app/views/ammos/show.html.erb</p>
+<h1><%= @ammo.name %></h1>
+
+<div class="controls">
+    <%= link_to "Edit ammo", edit_ammo_path(@ammo) %>
+    <%= link_to "Delete ammo", @ammo, :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+</div>
+
+<ul>
+    <li>Name: <%= @ammo.name %></li>
+    <li>Calibre: <%= @ammo.calibre %></li>
+    <li>Manufacturer: <%= @ammo.manufacturer.name if @ammo.manufacturer.present? %></li>
+    <li>Bullet Velocity: <%= @ammo.bullet_velocity %></li>
+    <li>Fragmentation Chance: <%= @ammo.fragmentation_chance %></li>
+    <li>Ricochet Chance: <%= @ammo.ricochet_chance %></li>
+    <li>Quantity: <%= @ammo.quantity %></li>
+</ul>
+
+<%= image_tag @ammo.image if @ammo.image.present? %>

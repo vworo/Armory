@@ -1,0 +1,29 @@
+<%= form_for @ammo do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, :required => true %>
+
+    <%= f.label :calibre %>
+    <%= f.text_field :calibre %>
+
+    <%= f.label :manufacturer_id %>
+    <%= f.select :manufacturer_id, Manufacturer.pluck(:name, :id), :include_blank => true %>
+
+    <%= f.label :bullet_velocity %>
+    <%= f.text_field :bullet_velocity %>
+    
+    <%= f.label :fragmentation_chance %>
+    <%= f.text_field :fragmentation_chance %>
+
+    <%= f.label :ricochet_chance %>
+    <%= f.text_field :ricochet_chance %>
+
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity %>
+
+    <%= f.label :image %>
+    <%= f.text_field :image %>
+
+    <%= f.submit %>
+
+<% end %>

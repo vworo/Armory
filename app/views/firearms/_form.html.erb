@@ -1,0 +1,29 @@
+<%= form_for @firearm do |f| %>
+
+    <%= f.label :model %>
+    <%= f.text_field :model, :required => true %>
+
+    <%= f.label :calibre %>
+    <%= f.text_field :calibre %>
+
+    <%= f.label :manufacturer_id %>
+    <%= f.select :manufacturer_id, Manufacturer.pluck(:name, :id), :include_blank => true %>
+
+    <%= f.label :family %>
+    <%= f.text_field :family %>
+    
+    <%= f.label :fire_rate %>
+    <%= f.text_field :fire_rate %>
+
+    <%= f.label :effective_distance %>
+    <%= f.text_field :effective_distance %>
+
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity %>
+
+    <%= f.label :image %>
+    <%= f.text_field :image %>
+
+    <%= f.submit %>
+
+<% end %>
