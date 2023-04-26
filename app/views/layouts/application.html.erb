@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project1</title>
+    <title>Armory</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= cloudinary_js_config %>
   </head>
 
   <body>
+
+    <% if @current_user.present? %>
+      <%= link_to "All firearms", firearms_path %>
+      <%= link_to "New firearm", new_firearm_path %>
+      <%= link_to "All ammo", ammos_path %>
+      <%= link_to "New ammo", new_ammo_path %>
+      <%= link_to "Log out #{ @current_user.email }", login_path, :method => :delete %>
+    <% else %>
+      <%= link_to "Sign up", new_user_path %>
+      <%= link_to "Sign in", login_path %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

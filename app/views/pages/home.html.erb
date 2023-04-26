@@ -1,0 +1,6 @@
+<h1>Armory</h1>
+<p>Welcome to Armory. An inventory management app designed with firearms in mind. </p>
+
+<% if @current_user.present? %>
+    <p>Logged in as: <%= @current_user.email %></p>
+<% end %>

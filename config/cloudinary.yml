@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dbvoag0i1
+  api_key: '585322827486582'
+  api_secret: vl0C2SknI5c8mzmWeh6r7n8yu0c
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dbvoag0i1
+  api_key: '585322827486582'
+  api_secret: vl0C2SknI5c8mzmWeh6r7n8yu0c
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dbvoag0i1
+  api_key: '585322827486582'
+  api_secret: vl0C2SknI5c8mzmWeh6r7n8yu0c
+  enhance_image_tag: true
+  static_file_support: false
