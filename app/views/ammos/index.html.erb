@@ -1,5 +1,7 @@
 <h1>All ammo</h1>
 
+<%= link_to "New ammo", new_ammo_path %>
+
 <% @ammos.each do |ammo| %>
     <ul>
         <li>Name: <%= link_to ammo.name, ammo %></li>

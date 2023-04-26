@@ -5,6 +5,8 @@
     <%= link_to "Delete ammo", @ammo, :method => :delete, :data => { :confirm => 'Are you sure?' } %>
 </div>
 
+<%= image_tag @ammo.image, :class => 'feature' if @ammo.image.present? %>
+
 <ul>
     <li>Name: <%= @ammo.name %></li>
     <li>Calibre: <%= @ammo.calibre %></li>
@@ -21,5 +23,3 @@
         </ul>
     </li>
 </ul>
-
-<%= image_tag @ammo.image if @ammo.image.present? %>

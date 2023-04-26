@@ -1,5 +1,7 @@
 <h1>All firearms</h1>
 
+<%= link_to "New firearm", new_firearm_path if @current_user.present? %>
+
 <% @firearms.each do |firearm| %>
     <ul>
         <li>Model: <%= link_to firearm.model, firearm %></li>
