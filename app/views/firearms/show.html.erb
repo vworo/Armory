@@ -8,7 +8,7 @@
 <ul>
     <li>Model: <%= @firearm.model %></li>
     <li>Calibre: <%= @firearm.calibre %></li>
-    <li>Manufacturer: <%= @firearm.manufacturer.name if @firearm.manufacturer.present? %></li>
+    <li>Manufacturer: <%= link_to @firearm.manufacturer.name, @firearm.manufacturer if @firearm.manufacturer.present? %></li>
     <li>Family: <%= @firearm.family %></li>
     <li>Fire rate: <%= @firearm.fire_rate %></li>
     <li>Effective distance: <%= @firearm.effective_distance %></li>

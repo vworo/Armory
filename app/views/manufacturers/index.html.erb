@@ -1,0 +1,10 @@
+<h1>All manufacturers</h1>
+
+<% @manufacturers.each do |manufacturer| %>
+    <ul>
+        <li>Name: <%= link_to manufacturer.name, manufacturer %></li>
+        <li>Founder: <%= manufacturer.founder %></li>
+        <li>Founded: <%= manufacturer.founded %></li>
+        <li>Country: <%= manufacturer.country %></li>
+    </ul>
+<% end %>

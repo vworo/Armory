@@ -9,6 +9,7 @@
 User.destroy_all
 u1 = User.create :email => 'kyle@kiss.fm', :password => 'chicken'
 u2 = User.create :email => 'jackieo@kiss.fm', :password => 'chicken'
+u3 = User.create :email => 'test@empty.com', :password => 'chicken'
 puts "#{ User.count } users created."
 
 Ammo.destroy_all

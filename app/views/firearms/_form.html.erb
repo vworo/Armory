@@ -4,7 +4,7 @@
     <%= f.text_field :model, :required => true %>
 
     <%= f.label :calibre %>
-    <%= f.text_field :calibre %>
+    <%= f.select :calibre, options_for_select(["7.62x51mm NATO", "5.56x45mm NATO", "9x19mm Parabellum", "5.45x39mm"]), :include_blank => true %>
 
     <%= f.label :manufacturer_id %>
     <%= f.select :manufacturer_id, Manufacturer.pluck(:name, :id), :include_blank => true %>
@@ -25,5 +25,7 @@
     <%= f.text_field :image %>
 
     <%= f.submit %>
+
+    <p>NOTE: Selecting a calibre will associate all compatible ammo upon creation</p>
 
 <% end %>
