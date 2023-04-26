@@ -13,6 +13,13 @@
     <li>Fragmentation Chance: <%= @ammo.fragmentation_chance %></li>
     <li>Ricochet Chance: <%= @ammo.ricochet_chance %></li>
     <li>Quantity: <%= @ammo.quantity %></li>
+    <li>Compatible firearms in database:
+        <ul>
+            <% @ammo.firearms.each do |firearm| %>
+                <li><%= link_to firearm.model, firearm %></li>
+            <% end %>
+        </ul>
+    </li>
 </ul>
 
 <%= image_tag @ammo.image if @ammo.image.present? %>

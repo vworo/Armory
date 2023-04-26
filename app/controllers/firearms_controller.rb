@@ -33,6 +33,7 @@ class FirearmsController < ApplicationController
     end
 
     private
+    
     def firearm_params
         params.require(:firearm).permit(:model, :calibre, :manufacturer_id, :family, :fire_rate, :effective_distance, :quantity, :image)
     end

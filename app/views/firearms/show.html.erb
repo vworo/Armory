@@ -13,6 +13,13 @@
     <li>Fire rate: <%= @firearm.fire_rate %></li>
     <li>Effective distance: <%= @firearm.effective_distance %></li>
     <li>Quantity: <%= @firearm.quantity %></li>
+    <li>Compatible ammo in database:
+        <ul>
+            <% @firearm.ammos.each do |ammo| %>
+                <li><%= link_to ammo.name, ammo %></li>
+            <% end %>
+        </ul>
+    </li>
 </ul>
 
 <%= image_tag @firearm.image if @firearm.image.present? %>

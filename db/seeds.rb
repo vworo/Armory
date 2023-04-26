@@ -54,12 +54,6 @@ a2.firearms << f2
 a3.firearms << f3
 a4.firearms << f4
 
-puts "Firearms and ammos"
-f1.ammos << a1
-f2.ammos << a2
-f3.ammos << a3
-f4.ammos << a4
-
 puts "Manufacturers and firearms"
 m1.firearms << f1
 m2.firearms << f2

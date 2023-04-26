@@ -33,6 +33,7 @@ class AmmosController < ApplicationController
   end
 
   private
+  
   def ammo_params
     params.require(:ammo).permit(:name, :calibre, :manufacturer_id, :bullet_velocity, :fragmentation_chance, :ricochet_chance, :quantity, :image)
   end
