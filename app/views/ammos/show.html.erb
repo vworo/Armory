@@ -5,21 +5,22 @@
     <%= link_to "Delete ammo", @ammo, :method => :delete, :data => { :confirm => 'Are you sure?' } %>
 </div>
 
-<%= image_tag @ammo.image, :class => 'feature' if @ammo.image.present? %>
-
-<ul>
-    <li>Name: <%= @ammo.name %></li>
-    <li>Calibre: <%= @ammo.calibre %></li>
-    <li>Manufacturer: <%= link_to @ammo.manufacturer.name, @ammo.manufacturer if @ammo.manufacturer.present? %></li>
-    <li>Bullet Velocity: <%= @ammo.bullet_velocity %></li>
-    <li>Fragmentation Chance: <%= @ammo.fragmentation_chance %></li>
-    <li>Ricochet Chance: <%= @ammo.ricochet_chance %></li>
-    <li>Quantity: <%= @ammo.quantity %></li>
-    <li>Compatible firearms in database:
-        <ul>
-            <% @ammo.firearms.each do |firearm| %>
-                <li><%= link_to firearm.model, firearm %></li>
-            <% end %>
-        </ul>
-    </li>
-</ul>
+<div class="listing">
+    <%= image_tag @ammo.image, :class => 'feature' if @ammo.image.present? %>
+    
+    <ul>
+        <li>Calibre: <%= @ammo.calibre %></li>
+        <li>Manufacturer: <%= link_to @ammo.manufacturer.name, @ammo.manufacturer if @ammo.manufacturer.present? %></li>
+        <li>Bullet Velocity: <%= @ammo.bullet_velocity %> <%= "m/s" if @ammo.bullet_velocity.present? %></li>
+        <li>Fragmentation Chance: <%= @ammo.fragmentation_chance %><%= "%" if @ammo.fragmentation_chance.present? %></li>
+        <li>Ricochet Chance: <%= @ammo.ricochet_chance %><%= "%" if @ammo.ricochet_chance.present? %></li>
+        <li>Quantity: <%= @ammo.quantity %></li>
+        <li>Compatible firearms in database:
+            <ul>
+                <% @ammo.firearms.each do |firearm| %>
+                    <li><%= link_to firearm.model, firearm %></li>
+                <% end %>
+            </ul>
+        </li>
+    </ul>
+</div>

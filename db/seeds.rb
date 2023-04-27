@@ -13,17 +13,19 @@ u3 = User.create :email => 'test@empty.com', :password => 'chicken'
 puts "#{ User.count } users created."
 
 Ammo.destroy_all
-a1 = Ammo.create :name => 'PBP', :calibre => '9x19 Parabellum', :bullet_velocity => 560, :fragmentation_chance => 5, :ricochet_chance => 20, :quantity => 60, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/e/eb/7N31Icon.png'
-a2 = Ammo.create :name => 'M995', :calibre => '5.56x45mm NATO', :bullet_velocity => 1013, :fragmentation_chance => 20, :ricochet_chance => 36, :quantity => 32, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/b/b6/M995ICON.png'
-a3 = Ammo.create :name => 'M61', :calibre => '7.62x51mm NATO', :bullet_velocity => 849, :fragmentation_chance => 13, :ricochet_chance => 30, :quantity => 20, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/e/e3/M61ICON.png'
+a1 = Ammo.create :name => 'PBP', :calibre => '9x19mm', :bullet_velocity => 560, :fragmentation_chance => 5, :ricochet_chance => 20, :quantity => 60, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/e/eb/7N31Icon.png'
+a2 = Ammo.create :name => 'M995', :calibre => '5.56x45mm', :bullet_velocity => 1013, :fragmentation_chance => 20, :ricochet_chance => 36, :quantity => 32, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/b/b6/M995ICON.png'
+a3 = Ammo.create :name => 'M61', :calibre => '7.62x51mm', :bullet_velocity => 849, :fragmentation_chance => 13, :ricochet_chance => 30, :quantity => 20, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/e/e3/M61ICON.png'
 a4 = Ammo.create :name => 'PPBS gs "Igolnik"', :calibre => '5.45x39mm', :bullet_velocity => 905, :fragmentation_chance => 2, :ricochet_chance => 38, :quantity => 60, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/6/64/7n39icon.png'
+a5 = Ammo.create :name => 'AP 6.3', :calibre => '9x19mm', :bullet_velocity => 392, :fragmentation_chance => 5, :ricochet_chance => 20, :quantity => 60, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/c/c6/9x19ap.png'
 puts "#{ Ammo.count } ammos created."
 
 Firearm.destroy_all
-f1 = Firearm.create :model => 'MP5', :calibre => '9x19 Parabellum', :family => 'Submachine Gun', :fire_rate => 800, :effective_distance => 200, :quantity => 60, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/5/54/Mp5.png'
-f2 = Firearm.create :model => 'M4A1', :calibre => '5.56x45mm NATO', :family => 'Assault Rifle', :fire_rate => 800, :effective_distance => 500, :quantity => 40, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/2/29/M4a1.png'
-f3 = Firearm.create :model => 'SA-58', :calibre => '7.62x51mm NATO', :family => 'Assault Rifle', :fire_rate => 700, :effective_distance => 900, :quantity => 20, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/a/ae/DS_Arms_SA-58_OSW_Para_7.62x51.png'
-f4 = Firearm.create :model => 'AK-74N', :calibre => '5.45x39mm', :family => 'Assault Rifle', :fire_rate => 650, :effective_distance => 650, :quantity => 56, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/8/84/Akn.png'
+f1 = Firearm.create :model => 'MP5', :calibre => '9x19mm', :family => 'Submachine Gun', :fire_rate => 800, :effective_distance => 200, :quantity => 10, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/5/54/Mp5.png'
+f2 = Firearm.create :model => 'M4A1', :calibre => '5.56x45mm', :family => 'Assault Rifle', :fire_rate => 800, :effective_distance => 500, :quantity => 6, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/2/29/M4a1.png'
+f3 = Firearm.create :model => 'SA-58', :calibre => '7.62x51mm', :family => 'Assault Rifle', :fire_rate => 700, :effective_distance => 900, :quantity => 1, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/a/ae/DS_Arms_SA-58_OSW_Para_7.62x51.png'
+f4 = Firearm.create :model => 'AK-74N', :calibre => '5.45x39mm', :family => 'Assault Rifle', :fire_rate => 650, :effective_distance => 650, :quantity => 5, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/8/84/Akn.png'
+f5 = Firearm.create :model => 'UMP', :calibre => '9x19mm', :family => 'Submachine Gun', :fire_rate => 600, :effective_distance => 200, :quantity => 2, :image => 'https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/4/42/UMP45_View.png'
 puts "#{ Firearm.count } firearms created."
 
 Manufacturer.destroy_all
@@ -36,23 +38,26 @@ puts "#{ Manufacturer.count } manufacturers created."
 puts "Users and ammos"
 u1.ammos << a1
 u1.ammos << a2
+u1.ammos << a5
 u2.ammos << a3
 u2.ammos << a4
 
 puts "Users and firearms"
 u1.firearms << f1
 u1.firearms << f2
+u1.firearms << f5
 u2.firearms << f3
 u2.firearms << f4
 
 puts "Ammos and firearms"
-a1.firearms << f1
+a1.firearms << f1 << f5
 a2.firearms << f2
 a3.firearms << f3
 a4.firearms << f4
+a5.firearms << f1 << f5
 
 puts "Manufacturers and firearms"
-m1.firearms << f1
+m1.firearms << f1 << f5
 m2.firearms << f2
 m3.firearms << f3
 m4.firearms << f4

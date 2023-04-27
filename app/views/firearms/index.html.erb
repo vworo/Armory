@@ -1,17 +1,21 @@
 <h1>All firearms</h1>
 
-<%= link_to "New firearm", new_firearm_path if @current_user.present? %>
+<div class="controls">
+    <%= link_to "New firearm", new_firearm_path if @current_user.present? %>
+</div>
 
 <% @firearms.each do |firearm| %>
-    <ul>
-        <li>Model: <%= link_to firearm.model, firearm %></li>
-        <li>Calibre: <%= firearm.calibre %></li>
-        <li>Manufacturer: <%= link_to firearm.manufacturer.name, firearm.manufacturer if firearm.manufacturer.present? %></li>
-        <li>Family: <%= firearm.family %></li>
-        <li>Fire Rate: <%= firearm.fire_rate %></li>
-        <li>Effective Distance: <%= firearm.effective_distance %></li>
-        <li>Quantity: <%= firearm.quantity %></li>
-    </ul>
+    <div class="listing">
+        <%= link_to firearm.model, firearm %>
+        <ul>
+            <li>Calibre: <%= firearm.calibre %></li>
+            <li>Manufacturer: <%= link_to firearm.manufacturer.name, firearm.manufacturer if firearm.manufacturer.present? %></li>
+            <li>Family: <%= firearm.family %></li>
+            <li>Fire Rate: <%= firearm.fire_rate %> <%= "RPM" if firearm.fire_rate.present? %></li>
+            <li>Effective Distance: <%= firearm.effective_distance %> <%= "m" if firearm.effective_distance.present? %></li>
+            <li>Quantity: <%= firearm.quantity %></li>
+        </ul>
+    </div>
 <% end %>
 
 <% if @firearms.empty? %>

@@ -1,17 +1,22 @@
 <h1>All ammo</h1>
 
-<%= link_to "New ammo", new_ammo_path %>
+<div class="controls">
+    <%= link_to "New ammo", new_ammo_path %>
+</div>
 
 <% @ammos.each do |ammo| %>
-    <ul>
-        <li>Name: <%= link_to ammo.name, ammo %></li>
-        <li>Calibre: <%= ammo.calibre %></li>
-        <li>Manufacturer: <%= link_to ammo.manufacturer.name, ammo.manufacturer if ammo.manufacturer.present? %></li>
-        <li>Bullet Velocity: <%= ammo.bullet_velocity %></li>
-        <li>Fragmentation Chance: <%= ammo.fragmentation_chance %></li>
-        <li>Ricochet Chance: <%= ammo.ricochet_chance %></li>
-        <li>Quantity: <%= ammo.quantity %></li>
-    </ul>
+
+    <div class="listing">
+        <%= link_to ammo.name, ammo %>
+        <ul>
+            <li>Calibre: <%= ammo.calibre %></li>
+            <li>Manufacturer: <%= link_to ammo.manufacturer.name, ammo.manufacturer if ammo.manufacturer.present? %></li>
+            <li>Bullet Velocity: <%= ammo.bullet_velocity %> <%= "m/s" if ammo.bullet_velocity.present? %></li>
+            <li>Fragmentation Chance: <%= ammo.fragmentation_chance %><%= "%" if ammo.fragmentation_chance.present? %></li>
+            <li>Ricochet Chance: <%= ammo.ricochet_chance %><%= "%" if ammo.ricochet_chance.present? %></li>
+            <li>Quantity: <%= ammo.quantity %></li>
+        </ul>
+    </div>
 <% end %>
 
 <% if @ammos.empty? %>

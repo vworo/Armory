@@ -1,3 +1,50 @@
+html > body {
+    background-color: rgb(13 17 23);
+}
+
+body a {
+    color: rgb(172, 210, 231);
+    margin-right: 0.5em;
+}
+
+body a:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: 0.5s all;
+}
+
+ul {
+    margin: 0;
+}
+
+input, select {
+    display: block;
+    margin: 0.2em;
+}
+
 .feature {
     padding: 1em;
+    max-height: 10em;
+    min-height: 10em;
+    display: block;
+    margin: 0 auto;
+}
+
+.listing {
+    background-color: rgba(48, 54, 61, 0.5);
+    border-radius: 1em;
+    padding: 1em;
+    margin: 1em;
+}
+
+.controls {
+    margin: 1em;
+}
+
+.info {
+    display: inline-block;
+}
+
+.note {
+    font-size: 8px;
 }

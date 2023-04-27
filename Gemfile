@@ -33,6 +33,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'cloudinary'
 gem 'httparty'
+gem 'bootstrap'
+gem 'jquery-rails'
+
+gem 'net-http'
+gem 'uri'
+gem 'json'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

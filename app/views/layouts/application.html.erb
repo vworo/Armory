@@ -4,24 +4,30 @@
     <title>Armory</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <%= cloudinary_js_config %>
+
   </head>
 
   <body>
 
-    <% if @current_user.present? %>
-      <%= link_to "Firearms", firearms_path %>
-      <%= link_to "Ammo", ammos_path %>
-      <%= link_to "Manufacturers", manufacturers_path %>
-      <%= link_to "Log out #{ @current_user.email }", login_path, :method => :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Sign in", login_path %>
-    <% end %>
+    <div class="container">
+      <% if @current_user.present? %>
+        <%= link_to "Firearms", firearms_path %>
+        <%= link_to "Ammo", ammos_path %>
+        <%= link_to "Manufacturers", manufacturers_path %>
+        <%= link_to "Log out #{ @current_user.email }", login_path, :method => :delete %>
+      <% else %>
+        <%= link_to "Sign up", new_user_path %>
+        <%= link_to "Sign in", login_path %>
+      <% end %>
 
-    <%= yield %>
+      <%= yield %>
+
+    </div>
+
   </body>
 </html>

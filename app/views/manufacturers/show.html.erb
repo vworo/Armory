@@ -1,18 +1,19 @@
 <h1><%= @manufacturer.name %></h1>
 
-<%= image_tag @manufacturer.image if @manufacturer.image.present? %>
-
-<ul>
-    <li>Name: <%= @manufacturer.name %></li>
-    <li>Founder: <%= @manufacturer.founder %></li>
-    <li>Founded: <%= @manufacturer.founded %></li>
-    <li>Country: <%= @manufacturer.country %></li>
-    <li>Firearms in database: 
-        <% firearms = @current_user.firearms.where(:manufacturer_id => @manufacturer.id) %>
-        <ul>
-            <% firearms.each do |firearm| %>
-                <li><%= link_to firearm.model, firearm %></li>
-            <% end %>
-        </ul>
-    </li>
-</ul>
+<div class="listing">
+    <%= image_tag @manufacturer.image, :class => 'feature' if @manufacturer.image.present? %>
+    
+    <ul>
+        <li>Founder: <%= @manufacturer.founder %></li>
+        <li>Founded: <%= @manufacturer.founded %></li>
+        <li>Country: <%= @manufacturer.country %></li>
+        <li>Firearms in database: 
+            <% firearms = @current_user.firearms.where(:manufacturer_id => @manufacturer.id) %>
+            <ul>
+                <% firearms.each do |firearm| %>
+                    <li><%= link_to firearm.model, firearm %></li>
+                <% end %>
+            </ul>
+        </li>
+    </ul>
+</div>

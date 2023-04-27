@@ -4,7 +4,8 @@
     <%= f.text_field :model, :required => true %>
 
     <%= f.label :calibre %>
-    <%= f.select :calibre, options_for_select(["7.62x51mm NATO", "5.56x45mm NATO", "9x19mm Parabellum", "5.45x39mm"]), :include_blank => true %>
+    <%= f.select :calibre, options_for_select(["7.62x51mm", "5.56x45mm", "9x19mm", "5.45x39mm"], selected: @firearm.calibre), :include_blank => true %>
+    <p class="note">NOTE: Selecting a calibre will associate all compatible ammo upon creation</p>
 
     <%= f.label :manufacturer_id %>
     <%= f.select :manufacturer_id, Manufacturer.pluck(:name, :id), :include_blank => true %>
@@ -13,19 +14,17 @@
     <%= f.text_field :family %>
     
     <%= f.label :fire_rate %>
-    <%= f.text_field :fire_rate %>
+    <%= f.number_field :fire_rate %>
 
     <%= f.label :effective_distance %>
-    <%= f.text_field :effective_distance %>
+    <%= f.number_field :effective_distance %>
 
     <%= f.label :quantity %>
-    <%= f.text_field :quantity %>
+    <%= f.number_field :quantity %>
 
     <%= f.label :image %>
     <%= f.cl_image_upload :image %>
 
-    <%= f.submit %>
-
-    <p>NOTE: Selecting a calibre will associate all compatible ammo upon creation</p>
+    <%= f.submit :class => 'btn btn-success' %>
 
 <% end %>

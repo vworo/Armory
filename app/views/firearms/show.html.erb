@@ -5,25 +5,26 @@
     <%= link_to "Delete firearm", @firearm, :method => :delete, :data => { :confirm => 'Are you sure?' } %>
 </div>
 
-<% if @firearm.image.present? && @firearm.image =~ /^[\w-]+$/ %>
-  <%= cl_image_tag @firearm.image, :class => 'feature' %>
-<% elsif @firearm.image.present? %>
-  <%= image_tag @firearm.image, :class => 'feature' %>
-<% end %>
+<div class="listing">
+    <% if @firearm.image.present? && @firearm.image =~ /^[\w-]+$/ %>
+      <%= cl_image_tag @firearm.image, :class => 'feature' %>
+    <% elsif @firearm.image.present? %>
+      <%= image_tag @firearm.image, :class => 'feature' %>
+    <% end %>
 
-<ul>
-    <li>Model: <%= @firearm.model %></li>
-    <li>Calibre: <%= @firearm.calibre %></li>
-    <li>Manufacturer: <%= link_to @firearm.manufacturer.name, @firearm.manufacturer if @firearm.manufacturer.present? %></li>
-    <li>Family: <%= @firearm.family %></li>
-    <li>Fire rate: <%= @firearm.fire_rate %></li>
-    <li>Effective distance: <%= @firearm.effective_distance %></li>
-    <li>Quantity: <%= @firearm.quantity %></li>
-    <li>Compatible ammo in database:
-        <ul>
-            <% @firearm.ammos.each do |ammo| %>
-                <li><%= link_to ammo.name, ammo %> x <%= ammo.quantity %></li>
-            <% end %>
-        </ul>
-    </li>
-</ul>
+    <ul>
+        <li>Calibre: <%= @firearm.calibre %></li>
+        <li>Manufacturer: <%= link_to @firearm.manufacturer.name, @firearm.manufacturer if @firearm.manufacturer.present? %></li>
+        <li>Family: <%= @firearm.family %></li>
+        <li>Fire rate: <%= @firearm.fire_rate %> <%= "RPM" if @firearm.fire_rate.present? %></li>
+        <li>Effective distance: <%= @firearm.effective_distance %> <%= "m" if @firearm.effective_distance.present? %></li>
+        <li>Quantity: <%= @firearm.quantity %></li>
+        <li>Compatible ammo in database:
+            <ul>
+                <% @firearm.ammos.each do |ammo| %>
+                    <li><%= link_to ammo.name, ammo %> x <%= ammo.quantity %></li>
+                <% end %>
+            </ul>
+        </li>
+    </ul>
+</div>

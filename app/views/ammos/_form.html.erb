@@ -4,28 +4,27 @@
     <%= f.text_field :name, :required => true %>
 
     <%= f.label :calibre %>
-    <%= f.select :calibre, options_for_select(["7.62x51mm NATO", "5.56x45mm NATO", "9x19mm Parabellum", "5.45x39mm"]), :include_blank => true %>
+    <%= f.select :calibre, options_for_select(["7.62x51mm", "5.56x45mm", "9x19mm", "5.45x39mm"], selected: @ammo.calibre), :include_blank => true %>
+    <p class="note">NOTE: Selecting a calibre will associate all compatible firearms upon creation</p>
 
     <%= f.label :manufacturer_id %>
     <%= f.select :manufacturer_id, Manufacturer.pluck(:name, :id), :include_blank => true %>
 
     <%= f.label :bullet_velocity %>
-    <%= f.text_field :bullet_velocity %>
+    <%= f.number_field :bullet_velocity %>
     
     <%= f.label :fragmentation_chance %>
-    <%= f.text_field :fragmentation_chance %>
+    <%= f.number_field :fragmentation_chance %>
 
     <%= f.label :ricochet_chance %>
-    <%= f.text_field :ricochet_chance %>
+    <%= f.number_field :ricochet_chance %>
 
     <%= f.label :quantity %>
-    <%= f.text_field :quantity %>
+    <%= f.number_field :quantity %>
 
     <%= f.label :image %>
     <%= f.text_field :image %>
 
-    <%= f.submit %>
-
-    <p>NOTE: Selecting a calibre will associate all compatible firearms upon creation</p>
+    <%= f.submit :class => 'btn btn-success' %>
 
 <% end %>

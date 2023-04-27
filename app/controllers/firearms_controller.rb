@@ -1,5 +1,5 @@
 class FirearmsController < ApplicationController
-    before_action :check_if_owner, :only => [:show]
+    before_action :check_if_owner, :only => [:show, :edit]
 
     def index
         @firearms = Firearm.where(:user_id => @current_user.id)
@@ -13,7 +13,8 @@ class FirearmsController < ApplicationController
         firearm = Firearm.create firearm_params
         firearm.update(:user_id => @current_user.id)
 
-        @current_user.ammos.where(calibre: firearm.calibre).each do |ammo|
+        # Auto associate ammos that share the same calibre string 
+        @current_user.ammos.where(:calibre => firearm.calibre).each do |ammo|
             firearm.ammos << ammo
         end
 
@@ -40,6 +41,13 @@ class FirearmsController < ApplicationController
         end
 
         firearm.update firearm_params
+
+        # Auto associate ammos that share the same calibre string 
+        firearm.ammos.destroy_all
+        @current_user.ammos.where(:calibre => firearm.calibre).each do |ammo|
+            firearm.ammos << ammo
+        end
+
         redirect_to firearm
     end
   
