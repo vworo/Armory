@@ -59,19 +59,19 @@ class AmmosController < ApplicationController
     # Send the request
     response = http.request(request)
 
-    # JSON data
+    # Convert to JSON and loop through data
     response_data = JSON.parse(response.body)
     response_data["data"]["ammo"].each do |ammo|
-      # Check if the item name matches "5.56x45mm M855"
-      if ammo["item"]["name"] == "#{ @ammo.calibre } #{ @ammo.name}"
+      # Check if the item name matches
+      if ammo["item"]["name"] == "#{ @ammo.calibre } #{ @ammo.name }"
         # Print the ricochetChance associated with this item
-        puts "The ricochetChance of #{ @ammo.name} is #{ammo["ricochetChance"]}"
+        puts "The ricochetChance of #{ @ammo.name } is #{ ammo["ricochetChance"] }"
       end
     end
 
     # Display request results
-    puts response.code
-    puts response.message
+    # puts response.code
+    # puts response.message
     puts response.body
 
   end
