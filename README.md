@@ -1,8 +1,10 @@
 # Armory
 
+This site is now live [here](https://armory.fly.dev/)!
+
 An app designed for police and military inventory management. Requires login to access database usage. User will be redirected to the home page if trying to access unauthorised data (accessing database items belonging to a different user). Upon creation and editing of database items, all compatible items and their manufacturers will be auto-associated if the relevant fields are selected.
 
-This app was created in Ruby on Rails 5.2.8.1 and was hosted on [fly.io](https://fly.io/) but has since been removed due to issues with deploying seed data on that particular platform. Current functionality exists through localhost.
+This app was created in Ruby on Rails 5.2.8.1.
 
 This app was designed heavily with the [Tarkov API](https://tarkov.dev/api/) in mind.
 
