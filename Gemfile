@@ -59,3 +59,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "dockerfile-rails", ">= 1.2", :group => :development
+
+gem "escompress", "~> 0.3.0"
