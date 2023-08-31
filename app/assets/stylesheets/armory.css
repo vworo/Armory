@@ -1,5 +1,5 @@
 body a {
-    color: rgb(70 181 242);
+    color: rgb(70, 181, 242);
     margin-right: 0.5em;
 }
 
@@ -27,7 +27,7 @@ input, select {
 }
 
 .listing {
-    background-color: rgb(214 214 214 / 50%);
+    background-color: rgb(214, 214, 214, 50%);
     border-radius: 1em;
     padding: 1em;
     margin: 1em;
